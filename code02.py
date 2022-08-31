@@ -9,10 +9,10 @@ import os
 # config.read('test02\config.ini')
 
 #Google Sheet
-import gspread
-gc = gspread.service_account(filename ='test02\credentials.json')
-worksheet = gc.open_by_key('1xCmulH3mgkT31tzTfY7Yym3zx77S_BCrD-M_AHvBw3c')
-log= worksheet.sheet1
+# import gspread
+# gc = gspread.service_account(filename ='test02\credentials.json')
+# worksheet = gc.open_by_key('1xCmulH3mgkT31tzTfY7Yym3zx77S_BCrD-M_AHvBw3c')
+# log= worksheet.sheet1
 
 # การส่ง Line
 from line_notify import LineNotify  
