@@ -1,11 +1,12 @@
 import time
 import requests
 import json
+import os
 
 #Config
-from configparser import ConfigParser
-config = ConfigParser()
-config.read('test02\config.ini')
+# from configparser import ConfigParser
+# config = ConfigParser()
+# config.read('test02\config.ini')
 
 #Google Sheet
 import gspread
@@ -15,23 +16,30 @@ log= worksheet.sheet1
 
 # การส่ง Line
 from line_notify import LineNotify  
-Line_Notify = config['Config']['LineNotify']
+# Line_Notify = config['Config']['LineNotify']
+Line_Notify = str(os.environ['LineNotify']) 
 notify = LineNotify(Line_Notify)
 
 # Login
 from bitkub import Bitkub
 API_HOST = 'https://api.bitkub.com/'
-API_KEY = config['Config']['API_KEY']
-API_SECRET = config['Config']['API_SECRET']
+# API_KEY = config['Config']['API_KEY']
+API_KEY = str(os.environ['API_KEY']) 
+# API_SECRET = config['Config']['API_SECRET']
+API_SECRET = str(os.environ['API_SECRET']) 
 
 
 Account_name  = "RB_50/50_TEST00"
-SetAsset =  config['Config']['Asset']
+# SetAsset =  config['Config']['Asset']
+SetAsset = str(os.environ['Asset']) 
 Asset = SetAsset.split(",")
-SetCoo =  config['Config']['Core']
+# SetCoo =  config['Config']['Core']
+SetCoo = str(os.environ['Core']) 
 coo = SetCoo.split(",")
-DCA = int(config['Config']['TIME'])
-GAP = float(config['Config']['GAP'])
+# DCA = int(config['Config']['DCA'])
+DCA = str(os.environ['DCA']) 
+# GAP = float(config['Config']['GAP'])
+GAP = str(os.environ['GAP']) 
 Bot=" "
 
 try:
